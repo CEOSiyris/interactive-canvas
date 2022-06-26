@@ -2,16 +2,16 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 
-class ZoomerController {
+class ICanvasController {
   late double _initScale;
-  late void Function(double value) _setZoomerScale, _setZoomerAngle;
-  double Function()? _getZoomerScale, _getZoomerAngle;
-  late void Function(Offset value) _setZoomerOffset;
-  late Offset Function() _getZoomerOffset;
+  late void Function(double value) _setICanvasScale, _setICanvasAngle;
+  double Function()? _getICanvasScale, _getICanvasAngle;
+  late void Function(Offset value) _setICanvasOffset;
+  late Offset Function() _getICanvasOffset;
   Function? _onZoomStart, _onZoomUpdate, _onZoomEnd;
 
-  ///ZoomerController To Control Zoomer Widget
-  ZoomerController({initialScale = 1.0}) {
+  ///ICanvasController To Control ICanvas Widget
+  ICanvasController({initialScale = 1.0}) {
     _initScale = initialScale;
   }
 
@@ -28,58 +28,58 @@ class ZoomerController {
   }
 
   double get scale {
-    if (_getZoomerScale == null) {
-      throw Exception("ZoomerController Not Attached To Any Zoomer");
+    if (_getICanvasScale == null) {
+      throw Exception("ICanvasController Not Attached To Any ICanvas");
     }
-    return _getZoomerScale!();
+    return _getICanvasScale!();
   }
 
   set setScale(double value) {
-    if (_getZoomerScale == null) {
-      throw Exception("ZoomerController Not Attached To Any Zoomer");
+    if (_getICanvasScale == null) {
+      throw Exception("ICanvasController Not Attached To Any ICanvas");
     }
-    _setZoomerScale(value);
+    _setICanvasScale(value);
   }
 
   Offset get offset {
-    if (_getZoomerScale == null) {
-      throw Exception("ZoomerController Not Attached To Any Zoomer");
+    if (_getICanvasScale == null) {
+      throw Exception("ICanvasController Not Attached To Any ICanvas");
     }
-    return _getZoomerOffset();
+    return _getICanvasOffset();
   }
 
   set setOffset(Offset value) {
-    if (_getZoomerScale == null) {
-      throw Exception("ZoomerController Not Attached To Any Zoomer");
+    if (_getICanvasScale == null) {
+      throw Exception("ICanvasController Not Attached To Any ICanvas");
     }
-    _setZoomerOffset(value);
+    _setICanvasOffset(value);
   }
 
   double get rotation {
-    if (_getZoomerScale == null) {
-      throw Exception("ZoomerController Not Attached To Any Zoomer");
+    if (_getICanvasScale == null) {
+      throw Exception("ICanvasController Not Attached To Any ICanvas");
     }
-    return _getZoomerAngle!();
+    return _getICanvasAngle!();
   }
 
   set setRotation(double value) {
-    if (_getZoomerScale == null) {
-      throw Exception("ZoomerController Not Attached To Any Zoomer");
+    if (_getICanvasScale == null) {
+      throw Exception("ICanvasController Not Attached To Any ICanvas");
     }
-    _setZoomerAngle(value);
+    _setICanvasAngle(value);
   }
 }
 
-class Zoomer extends StatefulWidget {
-  ///Zoomer widget to create interactive Zoomable widget
+class ICanvas extends StatefulWidget {
+  ///ICanvas widget turns any child into an interactive canvas
   final Widget? child;
   final double? height, width, minScale, maxScale;
   final BoxDecoration? background;
   final bool enableRotation;
   final bool clipRotation;
   final bool enableTranslation;
-  final ZoomerController? controller;
-  Zoomer(
+  final ICanvasController? controller;
+  ICanvas(
       {this.child,
       this.controller,
       this.height,
@@ -91,10 +91,10 @@ class Zoomer extends StatefulWidget {
       this.enableRotation = false,
       this.clipRotation = true});
   @override
-  _ZoomerState createState() => _ZoomerState();
+  _ICanvasState createState() => _ICanvasState();
 }
 
-class _ZoomerState extends State<Zoomer> {
+class _ICanvasState extends State<ICanvas> {
   double _scale = -1.0;
   Offset _offset = Offset(0.0, 0.0);
   double _startScale = 1.0;
@@ -125,16 +125,16 @@ class _ZoomerState extends State<Zoomer> {
     _limitOffset = Offset(widget.width!, widget.height!) * l;
     if (widget.controller != null) {
       _scale = -widget.controller!._initScale;
-      widget.controller!._getZoomerScale = () => getScale;
-      widget.controller!._getZoomerAngle = () => getRotation;
-      widget.controller!._getZoomerOffset = () => getOffset;
-      widget.controller!._setZoomerScale = (value) {
+      widget.controller!._getICanvasScale = () => getScale;
+      widget.controller!._getICanvasAngle = () => getRotation;
+      widget.controller!._getICanvasOffset = () => getOffset;
+      widget.controller!._setICanvasScale = (value) {
         setScale = value;
       };
-      widget.controller!._setZoomerAngle = (value) {
+      widget.controller!._setICanvasAngle = (value) {
         setRotation = value;
       };
-      widget.controller!._setZoomerOffset = (value) {
+      widget.controller!._setICanvasOffset = (value) {
         setOffset = value;
       };
     }
