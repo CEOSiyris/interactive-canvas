@@ -1,5 +1,5 @@
-# Flutter - Interactive Canvas
-[![pub package](https://img.shields.io/pub/v/interactive-canvas.svg)](https://pub.dartlang.org/packages/interactive-canvas)
+# Interactive Canvas
+[![pub package](https://img.shields.io/pub/v/interactive_canvas.svg)](https://pub.dartlang.org/packages/interactive_canvas)
 
 Turns any child into an interactive canvas. Interactive Canvas supports zoom, pan and rotation and you can optionally control the canvas with a controller. Using controller you can get/set the scale, offset, and rotation values. Interactive Canvas also provides callbacks on the start, update, and end Zoom events. Originally forked from the Zoomer package.
 
