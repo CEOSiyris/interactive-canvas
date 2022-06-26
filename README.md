@@ -1,7 +1,7 @@
-# zoomer
+# Flutter - Interactive Canvas
 [![pub package](https://img.shields.io/pub/v/zoomer.svg)](https://pub.dartlang.org/packages/zoomer)
 
-Zoomer - To Zoom Any Widget
+Forked from: Zoomer - To Zoom Any Widget
 
 ## preview
 <img src="https://raw.githubusercontent.com/RutvikRana/zoomer/main/video_example/96.gif" alt="" width="200" height="200">
