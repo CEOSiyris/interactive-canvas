@@ -1,8 +1,8 @@
-name: zoomer
-description: Zoomer Widget To Create Zoomable Child Widget. You Can Optionaly Translate or Rotate It. Zoomer Can Controlled By ZoomerController. Can Get/Set Properties of scale,offset,rotation. can Give Callbacks to start,update,end Zoom event.
-version: 0.0.4
-homepage: https://github.com/RutvikRana
-repository: https://github.com/RutvikRana/zoomer
+name: interactive_canvas
+description: Turns any child into an interactive canvas. Interactive Canvas supports zoom, pan and rotation and you can optionally control the canvas with a controller. Using controller you can get/set the scale, offset, and rotation values. Interactive Canvas also provides callbacks on the start, update, and end Zoom events. Originally forked from the Zoomer package.
+version: 0.0.5
+author: https://github.com/CEOSiyris
+repository: https://github.com/CEOSiyris/interactive-canvas
 environment:
   sdk: '>=2.12.0 <3.0.0'
 
