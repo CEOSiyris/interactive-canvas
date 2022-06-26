@@ -1,38 +1,38 @@
 # Flutter - Interactive Canvas
-[![pub package](https://img.shields.io/pub/v/zoomer.svg)](https://pub.dartlang.org/packages/zoomer)
+[![pub package](https://img.shields.io/pub/v/interactive-canvas.svg)](https://pub.dartlang.org/packages/interactive-canvas)
 
-Forked from: Zoomer - To Zoom Any Widget
+Turns any child into an interactive canvas. Interactive Canvas supports zoom, pan and rotation and you can optionally control the canvas with a controller. Using controller you can get/set the scale, offset, and rotation values. Interactive Canvas also provides callbacks on the start, update, and end Zoom events. Originally forked from the Zoomer package.
 
-## preview
-<img src="https://raw.githubusercontent.com/RutvikRana/zoomer/main/video_example/96.gif" alt="" width="200" height="200">
+## Preview:
+<img src="https://raw.githubusercontent.com/CEOSiyris/interactive-canvas/main/video_example/96.gif" alt="" width="200" height="200">
 
 ## Canvas functions:
 * Zoom
 * Rotate
-* Translate
+* Translate (Pan)
 
-## Installation
-Follow Installation guide of Pub.dev
+## Installation:
+Follow installation guide of Pub.dev
 
-## Syntax
+## Syntax:
 
-1. Zoomer Class
+1. ICanvas Class
 
-        Zoomer(
-            {this.child,                    // Child Can Be Any Widget, you want to make zoomable
-            this.controller,                // ZoomerControoller To Control Zoomer
+        ICanvas(
+            {this.child,                    // Child can be any Widget you want to be a canvas
+            this.controller,                // Use an ICanvasControoller to control the ICanvas
             this.height,                    // Height
             this.width,                     // Width 
-            this.background,                // background of Zoomer. It is BoxDecoration.
-            this.maxScale = 2.0,            // maximum Scale
-            this.minScale = 0.5,            // mininum Scale
-            this.enableTranslation = false, // Want to move it by touch
-            this.enableRotation = false,    // Want to rotate it
-            this.clipRotation = true});     // Clips the Rotation to 90-degrees
+            this.background,                // Set the canvas background color
+            this.maxScale = 2.0,            // maximum scale
+            this.minScale = 0.5,            // mininum scale
+            this.enableTranslation = false, // Allow canvas to be panned
+            this.enableRotation = false,    // Allow canvas to be rotated
+            this.clipRotation = true});     // Clips the rotation to 90-degrees
 
-2. ZoomerController Class
+2. ICanvasController Class
 
-          ZoomerController({initialScale = 1.0})  //To Set initial Scale
+          ICanvasController({initialScale = 1.0})  // Set initial Scale
           
     * APIs
     
@@ -53,7 +53,7 @@ Follow Installation guide of Pub.dev
       
       - set setRotation(double value)               
       ```_controller.setRotation = pi/4```
-      **Note: Rotation is in Radians**    
+      **Note: Rotation is in radians**    
       
       - onZoomStart()             
       ```_controller.onZoomStart( (){ print( _controller.scale ); } )```
@@ -64,20 +64,20 @@ Follow Installation guide of Pub.dev
       - onZoomEnd()             
       ```_controller.onZoomEnd( (){ print( _controller.scale ); } )```
 
-## Example
+## Example:
 
 ```class _HomeState extends State<Home> {
-  ZoomerController _zoomerController = ZoomerController(initialScale: 1.0);
+  ICanvasController _iCanvasController = ICanvasController(initialScale: 1.0);
   String _zoomDetails = "Zoom";  
 
   @override
   Widget build(BuildContext context) {
 
-    _zoomerController.onZoomUpdate((){
+    _iCanvasController.onZoomUpdate((){
       setState(() {
-        _zoomDetails = "Scale = "+ _zoomerController.scale.toStringAsFixed(2);
-        _zoomDetails += "\nRotation = "+ _zoomerController.rotation.toStringAsFixed(2);
-        _zoomDetails += "\nOffset = ("+ _zoomerController.offset.dx.toStringAsFixed(2)+","+_zoomerController.offset.dy.toStringAsFixed(2)+")";
+        _zoomDetails = "Scale = "+ _iCanvasController.scale.toStringAsFixed(2);
+        _zoomDetails += "\nRotation = "+ _iCanvasController.rotation.toStringAsFixed(2);
+        _zoomDetails += "\nOffset = ("+ _iCanvasController.offset.dx.toStringAsFixed(2)+","+_iCanvasController.offset.dy.toStringAsFixed(2)+")";
       });
     });
 
@@ -90,7 +90,7 @@ Follow Installation guide of Pub.dev
             Align(alignment: Alignment.topCenter,child: SizedBox(height: 150,child: Text(_zoomDetails,textAlign: TextAlign.center,style: TextStyle(fontSize: 30),))),
             Center(
               child: 
-                Zoomer(
+                ICanvas(
                   enableTranslation: true,
                   enableRotation: true,
                   clipRotation: true,
@@ -99,7 +99,7 @@ Follow Installation guide of Pub.dev
                   background:BoxDecoration(color: Colors.white),
                   height: 300,
                   width: 300,
-                  controller: _zoomerController,
+                  controller: _iCanvasController,
                   child: Container(decoration: BoxDecoration(color: Colors.green),height: 200,width: 200,child: FlutterLogo(),)),
             ),
           ])),
