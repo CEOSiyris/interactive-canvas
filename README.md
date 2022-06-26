@@ -6,7 +6,7 @@ Forked from: Zoomer - To Zoom Any Widget
 ## preview
 <img src="https://raw.githubusercontent.com/RutvikRana/zoomer/main/video_example/96.gif" alt="" width="200" height="200">
 
-## What It Can Do?
+## Canvas functions:
 * Zoom
 * Rotate
 * Translate
@@ -107,7 +107,3 @@ Follow Installation guide of Pub.dev
   }
 }
 ```
-
-## Contact Me
-
-I Am Rutvik Rana, Medical Student cum Passionate Coder, Invite You To My [Coding(noob to pro)](https://t.me/coding_noob_to_pro) Channel.
